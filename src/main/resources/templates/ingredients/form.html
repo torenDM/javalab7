@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredient Form</title>
+</head>
+<body>
+<h1 th:text="${#strings.isEmpty(ingredient.id) ? 'Add Ingredient' : 'Edit Ingredient'}"></h1>
+<form th:action="@{${#strings.isEmpty(ingredient.id) ? '/ingredients/save' : '/ingredients/update/' + ingredient.id}}" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="${ingredient.name}" required>
+    <br>
+    <label for="type">Type:</label>
+    <input type="text" id="type" name="type" th:value="${ingredient.type}" required>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

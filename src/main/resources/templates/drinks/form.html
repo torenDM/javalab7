@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drink Form</title>
+</head>
+<body>
+<h1 th:text="${#strings.isEmpty(drink.id) ? 'Add Drink' : 'Edit Drink'}"></h1>
+<form th:action="@{${#strings.isEmpty(drink.id) ? '/drinks/save' : '/drinks/update/' + drink.id}}" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="${drink.name}" required>
+    <br>
+
+    <label for="manufacturerId">Manufacturer ID:</label>
+    <input type="number" id="manufacturerId" name="manufacturerId" th:value="${drink.manufacturerId}" required>
+    <br>
+
+    <label for="ingredients">Ingredients:</label>
+    <input type="text" id="ingredients" name="ingredients" th:value="${drink.ingredients}" required>
+    <br>
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

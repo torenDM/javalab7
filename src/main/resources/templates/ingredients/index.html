@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredients</title>
+</head>
+<body>
+<h1>Ingredients</h1>
+<a href="/ingredients/new">Add New Ingredient</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ingredient : ${ingredients}">
+        <td th:text="${ingredient.id}"></td>
+        <td th:text="${ingredient.name}"></td>
+        <td th:text="${ingredient.type}"></td>
+        <td>
+            <a th:href="@{/ingredients/edit/{id}(id=${ingredient.id})}">Edit</a> |
+            <a th:href="@{/ingredients/delete/{id}(id=${ingredient.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
