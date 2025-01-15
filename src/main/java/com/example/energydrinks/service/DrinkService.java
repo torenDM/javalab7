@@ -19,8 +19,8 @@ public class DrinkService {
     }
 
     // Сохранить новый или обновить напиток
-    public Drink saveDrink(Drink drink) {
-        return drinkRepository.save(drink);
+    public void saveDrink(Drink drink) {
+        drinkRepository.save(drink);
     }
 
     // Удалить напиток по ID

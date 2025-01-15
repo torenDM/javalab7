@@ -1,7 +1,6 @@
 package com.example.energydrinks.controller;
 
 import com.example.energydrinks.model.Drink;
-import com.example.energydrinks.service.DrinkService;
 import com.example.energydrinks.model.Ingredient;
 import com.example.energydrinks.model.Manufacturer;
 import com.example.energydrinks.repository.DrinkRepository;
@@ -28,13 +27,6 @@ public class DataViewController {
 
     @Autowired
     private ManufacturerRepository manufacturerRepository;
-
-    private final DrinkService drinkService;
-
-    @Autowired
-    public DataViewController(DrinkService drinkService) {
-        this.drinkService = drinkService;
-    }
 
     @GetMapping("/drinks")
     public String viewDrinks(Model model) {

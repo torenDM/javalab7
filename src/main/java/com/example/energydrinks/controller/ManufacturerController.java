@@ -32,7 +32,6 @@ public class ManufacturerController {
     @PostMapping("/save")
     public String saveManufacturer(@ModelAttribute Manufacturer manufacturer) {
         if (manufacturer.getCountry() == null || manufacturer.getCountry().isEmpty()) {
-            // Вы можете выбросить исключение или вернуть ошибку
             return "redirect:/manufacturers?error=countryMissing";
         }
         manufacturerService.saveManufacturer(manufacturer);

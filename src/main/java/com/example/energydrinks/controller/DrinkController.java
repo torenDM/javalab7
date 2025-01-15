@@ -1,7 +1,6 @@
 package com.example.energydrinks.controller;
 
 import com.example.energydrinks.model.Drink;
-import com.example.energydrinks.model.Ingredient;
 import com.example.energydrinks.model.Manufacturer;
 import com.example.energydrinks.service.DrinkService;
 import com.example.energydrinks.service.ManufacturerService;
