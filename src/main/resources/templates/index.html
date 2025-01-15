@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energy Drinks</title>
+    <title>Панель управления</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h1>Welcome to the Energy Drinks Application</h1>
-<p>Choose an action below:</p>
+<header>
+    <h1>Панель управления</h1>
+</header>
 
-<ul>
-    <li><a href="/drinks">View Drinks</a></li>
-    <li><a href="/ingredients">View Ingredients</a></li>
-    <li><a href="/manufacturers">View Manufacturers</a></li>
-</ul>
+<main>
+    <form>
+        <p>Выберите действие ниже:
+        <div class="btn-group">
+            <a href="/drinks" class="btn btn-menu">Просмотр напитков</a>
+            <a href="/ingredients" class="btn btn-menu">Просмотр ингредиентов</a>
+            <a href="/manufacturers" class="btn btn-menu">Просмотр производителей</a>
+        </div>
+        </p>
+    </form>
+</main>
 </body>
 </html>

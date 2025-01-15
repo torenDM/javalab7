@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingredients</title>
+    <title>Ингредиенты</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h1>Ingredients</h1>
-<a href="/ingredients/new">Add New Ingredient</a>
+<h1>Ингредиенты</h1>
 <table>
     <thead>
     <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Type</th>
-        <th>Actions</th>
+        <th>Название</th>
+        <th>Тип</th>
+        <th>Опции</th>
     </tr>
     </thead>
     <tbody>
@@ -23,11 +23,15 @@
         <td th:text="${ingredient.name}"></td>
         <td th:text="${ingredient.type}"></td>
         <td>
-            <a th:href="@{/ingredients/edit/{id}(id=${ingredient.id})}">Edit</a> |
-            <a th:href="@{/ingredients/delete/{id}(id=${ingredient.id})}">Delete</a>
+            <a th:href="@{/ingredients/edit/{id}(id=${ingredient.id})}" class="btn btn-edit">Редактировать</a> |
+            <a th:href="@{/ingredients/delete/{id}(id=${ingredient.id})}" class="btn btn-delete">Удалить</a>
         </td>
     </tr>
     </tbody>
 </table>
+
+<a href="/ingredients/new" class="btn btn-add-new">Добавить новый ингредиент</a>
+<!-- Фрагмент навигации -->
+<div th:replace="fragments/_navigation :: navigation"></div>
 </body>
 </html>

@@ -1,26 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drink Form</title>
+    <title>Изменение напитков</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h1 th:text="${#strings.isEmpty(drink.id) ? 'Add Drink' : 'Edit Drink'}"></h1>
+
+<h1 th:text="${#strings.isEmpty(drink.id) ? 'Добавить ингредиент' : 'Отредактировать ингредиент'}"></h1>
 <form th:action="@{${#strings.isEmpty(drink.id) ? '/drinks/save' : '/drinks/update/' + drink.id}}" method="post">
-    <label for="name">Name:</label>
+    <label for="name">Название:</label>
     <input type="text" id="name" name="name" th:value="${drink.name}" required>
-    <br>
 
-    <label for="manufacturerId">Manufacturer ID:</label>
-    <input type="number" id="manufacturerId" name="manufacturerId" th:value="${drink.manufacturerId}" required>
-    <br>
+    <label for="volumeMl">Объем (мл):</label>
+    <input type="number" id="volumeMl" name="volumeMl" min="0" th:value="${drink.volumeMl}" required>
 
-    <label for="ingredients">Ingredients:</label>
-    <input type="text" id="ingredients" name="ingredients" th:value="${drink.ingredients}" required>
-    <br>
+    <label for="caffeineMg">Кофеин (мг):</label>
+    <input type="number" id="caffeineMg" name="caffeineMg" min="0" th:value="${drink.caffeineMg}" required>
 
-    <button type="submit">Submit</button>
+    <label for="price">Цена:</label>
+    <input type="number" id="price" name="price" min="0" step="0.01" th:value="${drink.price}" required>
+
+    <label for="manufacturer">Производитель:</label>
+    <select id="manufacturer" name="manufacturer.id" required>
+        <option th:each="manufacturer : ${manufacturers}" th:value="${manufacturer.id}" th:text="${manufacturer.name}">
+            Manufacturers
+        </option>
+    </select>
+
+    <button type="submit">Подтвердить</button>
 </form>
+
+
+<div th:replace="fragments/_navigation :: navigation"></div>
 </body>
 </html>

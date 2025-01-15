@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DrinkService {
@@ -17,18 +18,23 @@ public class DrinkService {
         this.drinkRepository = drinkRepository;
     }
 
-    public void saveDrink(Drink drink) {
-        drinkRepository.save(drink);
+    // Сохранить новый или обновить напиток
+    public Drink saveDrink(Drink drink) {
+        return drinkRepository.save(drink);
     }
 
+    // Удалить напиток по ID
     public void deleteDrink(Long id) {
         drinkRepository.deleteById(id);
     }
 
+    // Получить напиток по ID
     public Drink getDrinkById(Long id) {
-        return drinkRepository.findById(id).orElse(null);
+        Optional<Drink> drink = drinkRepository.findById(id);
+        return drink.orElse(null);
     }
 
+    // Получить все напитки
     public List<Drink> getAllDrinks() {
         return drinkRepository.findAll();
     }

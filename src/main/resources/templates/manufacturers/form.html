@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manufacturer Form</title>
+  <title th:text="${#strings.isEmpty(manufacturer.id) ? 'Добавить производителя' : 'Отредактировать производителя'}"></title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h1 th:text="${#strings.isEmpty(manufacturer.id) ? 'Add Manufacturer' : 'Edit Manufacturer'}"></h1>
+<h1 th:text="${#strings.isEmpty(manufacturer.id) ? 'Добавить производителя' : 'Отредактировать производителя'}"></h1>
 <form th:action="@{${#strings.isEmpty(manufacturer.id) ? '/manufacturers/save' : '/manufacturers/update/' + manufacturer.id}}" method="post">
-  <label for="name">Name:</label>
+  <label for="name">Название:</label>
   <input type="text" id="name" name="name" th:value="${manufacturer.name}" required>
   <br>
-
-  <label for="country">Country:</label>
+  <label for="country">Страна:</label>
   <input type="text" id="country" name="country" th:value="${manufacturer.country}" required>
   <br>
-
-  <button type="submit">Submit</button>
+  <button type="submit">Подтвердить</button>
 </form>
+
+<!-- Фрагмент навигации -->
+<div th:replace="fragments/_navigation :: navigation"></div>
 </body>
 </html>

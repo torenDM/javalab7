@@ -36,9 +36,10 @@ public class DataViewController {
         this.drinkService = drinkService;
     }
 
-    @GetMapping("/view")
+    @GetMapping("/drinks")
     public String viewDrinks(Model model) {
-        model.addAttribute("drinks", drinkService.getAllDrinks());
+        List<Drink> drinks = drinkRepository.findAll();
+        model.addAttribute("drinks", drinks);
         return "drinks";
     }
 

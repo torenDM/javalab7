@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Энергетические напитки</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+
+<h1>Энергетические напитки</h1>
+
+<!-- Таблица с напитками -->
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Объем (мл)</th>
+        <th>Кофеин (мг)</th>
+        <th>Цена</th>
+        <th>Производитель</th>
+        <th>Опции</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="drink : ${drinks}">
+        <td th:text="${drink.id}"></td>
+        <td th:text="${drink.name}"></td>
+        <td th:text="${drink.volumeMl}"></td>
+        <td th:text="${drink.caffeineMg}"></td>
+        <td th:text="${drink.price}"></td>
+        <td th:text="${drink.manufacturer.name}"></td>
+        <td>
+            <a th:href="@{/drinks/edit/{id}(id=${drink.id})}" class="btn btn-edit">Редактировать</a> |
+            <a th:href="@{/drinks/delete/{id}(id=${drink.id})}" class="btn btn-delete">Удалить</a>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+
+<a href="/drinks/new" class="btn btn-add-new">Добавить новый напиток</a>
+<div th:replace="fragments/_navigation :: navigation"></div>
+</body>
+</html>
